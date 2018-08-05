@@ -3,7 +3,9 @@ from urllib.request import urlopen
 
 ct = 0
 
-myfile = open("/Users/michelletran/Downloads/Lvl-5---Ch-3/RedRows.txt", "r")
+# BEFORE YOU RUN THE SCRIPT
+# Alter the file path to match the location of the files on your device.
+myfile = open("/Downloads/RedRows.css", "r")
 
 for eachline in myfile.readlines():
     values = eachline.split()
