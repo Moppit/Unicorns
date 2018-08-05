@@ -1,14 +1,21 @@
 # RedRows Verification
-"""
-with open("/Downloads/RedRows.css", "a") as myfile:
-    for x in range(0, 50):
-        myfile.write("There are " + str(x) + " cars\n")
-"""
+from urllib.request import urlopen
 
-with open("/Downloads/RedRows.css", "r") as myfile:
-    print(myfile.read())
-    
-response2 = urllib2.urlopen("http://127.0.0.1:8080/winning")
-html = response2.read()
-print(html)
+ct = 0
 
+myfile = open("/Users/michelletran/Downloads/Lvl-5---Ch-3/RedRows.txt", "r")
+
+for eachline in myfile.readlines():
+    values = eachline.split()
+    if(values[0] == "background-color:" and values[1] == "red;" ):
+        ct += 1
+
+myfile.close()
+
+if(ct == 3):
+    print("Success! Now search for the flag.")
+    request = urlopen("https://nhscybersecurity.weebly.com/redrows.html")
+    html = request.read()
+    print(html)
+else:
+    print("Nope. Try again.")
